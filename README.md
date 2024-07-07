@@ -1,4 +1,4 @@
-# Configuration file for quick setup of a Kubernetes Cluster (Bare Metal)
+# Configuration file for quick setup of a Kubernetes Node (Bare Metal)
 
 The repository contains a simple init.sh file that allows to setup quickly the nodes of a Kubernetes Cluster running on a Linux Distro. 
 
