@@ -14,5 +14,8 @@ chmod +x kubernetes_scripts_ubuntu_cluster/init.sh
 
 ## Specifications
 
-OS Used: Ubuntu Server 24.04
-Cri-Socket used: cri-dockerd.sock
+` OS Used: ` Ubuntu Server 24.04
+
+` Cri-Socket used: ` cri-dockerd.sock
+
+` VM Manager used: ` VM Box
