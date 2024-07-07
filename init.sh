@@ -1,9 +1,11 @@
+cd ..
 swapoff -a
 sudo su
 cd ..
 cd ..
 sed -i '/[/]swap.img/ s/^/#/' /etc/fstab
 exit
+
 sudo apt install net-tools
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl gpg
