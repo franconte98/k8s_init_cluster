@@ -1,13 +1,7 @@
 #!/bin/bash
 ls
-sudo su
-exit
 swapoff -a
-sudo su
-cd ..
-cd ..
 sed -i '/[/]swap.img/ s/^/#/' /etc/fstab
-exit
 
 sudo apt install net-tools
 sudo apt-get update
