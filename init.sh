@@ -1,4 +1,5 @@
-cd ..
+sudo su
+exit
 swapoff -a
 sudo su
 cd ..
