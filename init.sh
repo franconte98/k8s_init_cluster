@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo su
 exit
 swapoff -a
