@@ -17,7 +17,6 @@ while true; do
     sudo apt-mark hold kubelet kubeadm kubectl;
     wget https://github.com/Mirantis/cri-dockerd/releases/download/v0.3.14/cri-dockerd-0.3.14.amd64.tgz;
     tar -xvf cri-dockerd-0.3.14.amd64.tgz;
-    sudo su;
     sudo apt install docker.io -y;
     systemctl start docker;
     systemctl enable docker;
