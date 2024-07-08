@@ -1,4 +1,5 @@
 #!/bin/bash
+echo 'Prima While'
 while true; do
     ls;
     swapoff -a;
