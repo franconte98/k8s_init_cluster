@@ -10,7 +10,7 @@ chmod +x kubernetes_scripts_ubuntu_cluster/init.sh
 The previous command gives the permits to run the file to the OS. Read the file before you run it though.
 
 ```bash
-watch kubernetes_scripts_ubuntu_cluster/init.sh
+bash -xv kubernetes_scripts_ubuntu_cluster/init.sh
 ```
 
 ## Specifications
