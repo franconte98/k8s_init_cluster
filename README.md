@@ -7,9 +7,10 @@ The repository contains a simple init.sh file that allows to setup quickly the n
 ```bash
 chmod +x kubernetes_scripts_ubuntu_cluster/init.sh
 ```
+The previous command gives the permits to run the file to the OS. Read the file before you run it though.
 
 ```bash
-./kubernetes_scripts_ubuntu_cluster/init.sh
+watch kubernetes_scripts_ubuntu_cluster/init.sh
 ```
 
 ## Specifications
