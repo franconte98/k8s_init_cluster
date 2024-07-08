@@ -1,6 +1,7 @@
 #!/bin/bash
 echo 'Prima While'
 while true; do
+    echo 'entrato';
     ls;
     swapoff -a;
     sudo su;
@@ -84,3 +85,4 @@ EOF
     sudo systemctl enable kubelet;
     sudo kubeadm config images pull --cri-socket /var/run/cri-dockerd.sock;
 done
+echo 'fine while';
