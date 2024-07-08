@@ -4,9 +4,6 @@ while true; do
     echo 'entrato';
     ls;
     swapoff -a;
-    sudo su;
-    cd ..;
-    cd ..;
     sed -i '/[/]swap.img/ s/^/#/' /etc/fstab;
 
     sudo apt install net-tools;
