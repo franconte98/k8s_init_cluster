@@ -6,7 +6,6 @@ while true; do
     cd ..;
     cd ..;
     sed -i '/[/]swap.img/ s/^/#/' /etc/fstab;
-    exit;
 
     sudo apt install net-tools;
     sudo apt-get update;
