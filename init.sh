@@ -22,7 +22,7 @@ while true; do
     sudo apt install docker.io -y;
     systemctl start docker;
     systemctl enable docker;
-    cd cri-dockerd;
+    cd cri-dockerd || exit;
     mkdir -p /usr/local/bin;
     install -o root -g root -m 0755 ./cri-dockerd /usr/local/bin/cri-dockerd;
 
@@ -73,7 +73,7 @@ EOF
     echo "memory swapoff";
     sudo modprobe overlay;
     sudo modprobe br_netfilter;
-sudo tee /etc/sysctl.d/kubernetes.conf<<EOF
+    sudo tee /etc/sysctl.d/kubernetes.conf<<EOF
     net.bridge.bridge-nf-call-ip6tables = 1
     net.bridge.bridge-nf-call-iptables = 1
     net.ipv4.ip_forward = 1
