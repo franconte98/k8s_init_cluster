@@ -7,7 +7,7 @@ The repository contains a simple init.sh file that allows to setup quickly the n
 Run as an administrator and exec the following commands.
 
 ```bash
-https://github.com/franconte98/kubernetes_scripts_ubuntu_cluster.git
+git clone https://github.com/franconte98/kubernetes_scripts_ubuntu_cluster.git
 ```
 
 ```bash
