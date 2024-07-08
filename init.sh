@@ -27,7 +27,7 @@ while true; do
     mkdir -p /usr/local/bin;
     install -o root -g root -m 0755 ./cri-dockerd /usr/local/bin/cri-dockerd;
 
-    sudo tee /etc/systemd/system/cri-docker.service << EOF
+    sudo tee /etc/systemd/system/cri-docker.service
         [Unit]
         Description=CRI Interface for Docker Application Container Engine
         Documentation=https://docs.mirantis.com
@@ -53,7 +53,7 @@ while true; do
         WantedBy=multi-user.target
     EOF
 
-    sudo tee /etc/systemd/system/cri-docker.socket << EOF
+    sudo tee /etc/systemd/system/cri-docker.socket
         [Unit]
         Description=CRI Docker Socket for the API
         PartOf=cri-docker.service
@@ -71,9 +71,9 @@ while true; do
     systemctl enable --now cri-docker.socket;
 
     echo "memory swapoff";
-        sudo modprobe overlay;
-        sudo modprobe br_netfilter;
-        sudo tee /etc/sysctl.d/kubernetes.conf<<EOF
+    sudo modprobe overlay;
+    sudo modprobe br_netfilter;
+    sudo tee /etc/sysctl.d/kubernetes.conf
         net.bridge.bridge-nf-call-ip6tables = 1
         net.bridge.bridge-nf-call-iptables = 1
         net.ipv4.ip_forward = 1
