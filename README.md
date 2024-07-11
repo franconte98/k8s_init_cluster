@@ -25,7 +25,7 @@ bash -xv ./kubernetes_scripts_ubuntu_cluster/Scripts/init.sh
 ONLY FOR THE MASTER NODE RUN WITH THE FOLLOWING INSTRUCTION.
 
 ```bash
-bash -xv ./kubernetes_scripts_ubuntu_cluster/Scripts/masterinit.sh
+bash -xv ./kubernetes_scripts_ubuntu_cluster/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP
 ```
 
 ## Specifications
