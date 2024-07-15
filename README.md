@@ -7,7 +7,7 @@ The repository contains simple bash files to setup quickly the nodes of a Kubern
 Run as an administrator and exec the following commands.
 
 ```bash
-git clone https://github.com/franconte98/kubernetes_scripts_ubuntu_cluster.git
+git clone https://github.com/franconte98/init_kubernetes_cluster_bare_metal.git
 ```
 
 ```bash
