@@ -5,20 +5,20 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config;
 sudo chown $(id -u):$(id -g) $HOME/.kube/config;
 kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml;
 
-# see what changes would be made, returns nonzero returncode if different
+### Append strictARP: true
 kubectl get configmap kube-proxy -n kube-system -o yaml | \
 sed -e "s/strictARP: false/strictARP: true/" | \
 kubectl diff -f - -n kube-system
-# actually apply the changes, returns nonzero returncode on errors only
+### 
 kubectl get configmap kube-proxy -n kube-system -o yaml | \
 sed -e "s/strictARP: false/strictARP: true/" | \
 kubectl apply -f - -n kube-system
 
-# see what changes would be made, returns nonzero returncode if different
+### Append mode: "ipvs"
 kubectl get configmap kube-proxy -n kube-system -o yaml | \
 sed -e "s/mode: ""/mode: "ipvs"/" | \
 kubectl diff -f - -n kube-system
-# actually apply the changes, returns nonzero returncode on errors only
+###
 kubectl get configmap kube-proxy -n kube-system -o yaml | \
 sed -e "s/mode: ""/mode: "ipvs"/" | \
 kubectl apply -f - -n kube-system
