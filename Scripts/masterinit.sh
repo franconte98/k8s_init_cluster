@@ -25,5 +25,6 @@ kubectl apply -f - -n kube-system
 
 helm repo add metallb https://metallb.github.io/metallb;
 helm install metallb metallb/metallb;
+helm upgrade --install metallb  metallb/metallb --create-namespace --namespace metallb-system --set crds.validationFailurePolicy=Ignore --wait
 
 kubeadm token create --print-join-command;
