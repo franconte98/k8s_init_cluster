@@ -17,5 +17,4 @@ kubectl apply -f - -n kube-system
 helm repo add metallb https://metallb.github.io/metallb;
 helm install metallb metallb/metallb;
 
-echo "QUI' DI SEGUITO C'E' IL COMANDO DI JOIN DA INSERIRE NEI WORKING NODES.\n\n";
-kubeadm token create --print-join-command & echo " --cri-socket /var/run/cri-dockerd.sock";
+kubeadm token create --print-join-command;
