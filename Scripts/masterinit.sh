@@ -8,14 +8,14 @@ kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/we
 ### Append strictARP: true
 kubectl get configmap kube-proxy -n kube-system -o yaml | \
 sed -e "s/strictARP: false/strictARP: true/" | \
-kubectl diff -f - -n kube-system
+kubectl diff -f - -n kube-system;
 ### 
 kubectl get configmap kube-proxy -n kube-system -o yaml | \
 sed -e "s/strictARP: false/strictARP: true/" | \
-kubectl apply -f - -n kube-system
+kubectl apply -f - -n kube-system;
 
 helm repo add metallb https://metallb.github.io/metallb;
-helm install metallb metallb/metallb;
-helm upgrade --install metallb  metallb/metallb --create-namespace --namespace metallb-system --set crds.validationFailurePolicy=Ignore --wait
+kubectl create namespace metallb-system;
+helm install metallb metallb/metallb --set crds.validationFailurePolicy=Ignore;
 
 kubeadm token create --print-join-command;
