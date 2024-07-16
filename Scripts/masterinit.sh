@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo kubeadm init --upload-certs --control-plane-endpoint="$1" --ignore-preflight-errors=all --cri-socket /var/run/cri-dockerd.sock;
+sudo kubeadm init --upload-certs --control-plane-endpoint="$1" --pod-network-cidr="$2" --ignore-preflight-errors=all --cri-socket /var/run/cri-dockerd.sock;
 mkdir -p $HOME/.kube;
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config;
 sudo chown $(id -u):$(id -g) $HOME/.kube/config;
@@ -12,15 +12,6 @@ kubectl diff -f - -n kube-system
 ### 
 kubectl get configmap kube-proxy -n kube-system -o yaml | \
 sed -e "s/strictARP: false/strictARP: true/" | \
-kubectl apply -f - -n kube-system
-
-### Append mode: "ipvs"
-kubectl get configmap kube-proxy -n kube-system -o yaml | \
-sed -e "s/mode: ""/mode: "ipvs"/" | \
-kubectl diff -f - -n kube-system
-###
-kubectl get configmap kube-proxy -n kube-system -o yaml | \
-sed -e "s/mode: ""/mode: "ipvs"/" | \
 kubectl apply -f - -n kube-system
 
 helm repo add metallb https://metallb.github.io/metallb;
