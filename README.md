@@ -25,7 +25,7 @@ bash -xv ./init_kubernetes_cluster_bare_metal/Scripts/init.sh
 ONLY FOR THE MASTER NODE RUN WITH THE FOLLOWING INSTRUCTION.
 
 ```bash
-bash -xv ./init_kubernetes_cluster_bare_metal/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP
+bash -xv ./init_kubernetes_cluster_bare_metal/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP INSERT_CIDR_PODS
 ```
 
 ## Specifications
