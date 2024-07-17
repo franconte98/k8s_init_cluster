@@ -80,7 +80,7 @@ EOF
 
 sysctl --system;
 sudo systemctl enable kubelet;
-sudo kubeadm config images pull --cri-socket /var/run/cri-dockerd.sock;
+sudo kubeadm config images pull --cri-socket unix:///var/run/cri-dockerd.sock;
 
 DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker};
 mkdir -p $DOCKER_CONFIG/cli-plugins;
