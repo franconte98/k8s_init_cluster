@@ -16,7 +16,7 @@ The repository contains simple bash files to setup quickly the nodes of a Kubern
 
 Run as an administrator and exec the following commands.
 
-⚠️ These commands gives the permits to run the file to the OS. Therefore read the file before you run them!
+⚠️ These commands gives the permits to run the file to the OS. Therefore read the files before you run them!
 
 ```bash
 git clone https://github.com/franconte98/init_kubernetes_cluster_bare_metal.git
