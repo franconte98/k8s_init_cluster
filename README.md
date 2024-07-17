@@ -2,6 +2,16 @@
 
 The repository contains simple bash files to setup quickly the nodes of a Kubernetes Cluster running on a Linux Distro. 
 
+## Specifications
+
+` OS Used: ` Ubuntu Server 24.04  
+
+` Cri-Socket used: ` cri-dockerd.sock
+
+` VM Manager used: ` VM Box
+
+` Network Policy: ` Weave
+
 ## Usage
 
 Run as an administrator and exec the following commands.
@@ -31,14 +41,3 @@ bash -xv ./init_kubernetes_cluster_bare_metal/Scripts/init.sh
 ```bash
 bash -xv ./init_kubernetes_cluster_bare_metal/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP INSERT_CIDR_PODS
 ```
-
-## Specifications
-
-` OS Used: ` Ubuntu Server 24.04  
-
-` Cri-Socket used: ` cri-dockerd.sock
-
-` VM Manager used: ` VM Box
-
-` Network Policy: ` Weave
-
