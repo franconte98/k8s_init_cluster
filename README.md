@@ -43,6 +43,5 @@ bash -xv ./k8s_init_cluster/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP INSERT
 ```
 
 ` example of bash command: `
-```bash
+
 bash -xv ./k8s_init_cluster/Scripts/masterinit.sh 192.168.0.140:6443 10.0.2.0/24
-```
