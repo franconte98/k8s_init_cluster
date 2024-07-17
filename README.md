@@ -5,6 +5,7 @@ The repository contains simple bash files to setup quickly the nodes of a Kubern
 ## Usage
 
 Run as an administrator and exec the following commands.
+⚠️ These commands gives the permits to run the file to the OS. Therefor read the file before you run them!
 
 ```bash
 git clone https://github.com/franconte98/init_kubernetes_cluster_bare_metal.git
@@ -16,13 +17,15 @@ chmod +x init_kubernetes_cluster_bare_metal/Scripts/init.sh
 ```bash
 chmod +x init_kubernetes_cluster_bare_metal/Scripts/masterinit.sh
 ```
-The previous command gives the permits to run the file to the OS. Read the file before you run it though.
 
+Now you can execute them by use the following commands.
+
+Run the following command on each node (both the Master/s and the working ones)
 ```bash
 bash -xv ./init_kubernetes_cluster_bare_metal/Scripts/init.sh
 ```
 
-ONLY FOR THE MASTER NODE RUN WITH THE FOLLOWING INSTRUCTION.
+⚠️ USE THE FOLLOWING COMMAND ONLY ON THE MASTER NODE/S
 
 ```bash
 bash -xv ./init_kubernetes_cluster_bare_metal/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP INSERT_CIDR_PODS
