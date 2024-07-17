@@ -23,21 +23,21 @@ git clone https://github.com/franconte98/init_kubernetes_cluster_bare_metal.git
 ```
 
 ```bash
-chmod +x init_kubernetes_cluster_bare_metal/Scripts/init.sh
+chmod +x k8s_init_cluster/Scripts/init.sh
 ```
 ```bash
-chmod +x init_kubernetes_cluster_bare_metal/Scripts/masterinit.sh
+chmod +x k8s_init_cluster/Scripts/masterinit.sh
 ```
 
 Now you can execute them by use the following commands.
 
 Run the following command on each node (both the Master/s and the working ones)
 ```bash
-bash -xv ./init_kubernetes_cluster_bare_metal/Scripts/init.sh
+bash -xv ./k8s_init_cluster/Scripts/init.sh
 ```
 
 ⚠️ USE THE FOLLOWING COMMAND ONLY ON THE MASTER NODE/S
 
 ```bash
-bash -xv ./init_kubernetes_cluster_bare_metal/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP INSERT_CIDR_PODS
+bash -xv ./k8s_init_cluster/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP INSERT_CIDR_PODS
 ```
