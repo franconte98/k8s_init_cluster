@@ -30,8 +30,8 @@ bash -xv ./init_kubernetes_cluster_bare_metal/Scripts/masterinit.sh INSERT_CONTR
 
 ## Specifications
 
-` OS Used: ` Ubuntu Server 24.04
-
+` OS Used: ` Ubuntu Server 24.04  
 ` Cri-Socket used: ` cri-dockerd.sock
-
 ` VM Manager used: ` VM Box
+` Network Policy: ` Weave
+
