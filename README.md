@@ -19,7 +19,7 @@ Run as an administrator and exec the following commands.
 ⚠️ These commands gives the permits to run the file to the OS. Therefore read the files before you run them!
 
 ```bash
-git clone https://github.com/franconte98/init_kubernetes_cluster_bare_metal.git
+git clone https://github.com/franconte98/k8s_init_cluster.git
 ```
 
 ```bash
