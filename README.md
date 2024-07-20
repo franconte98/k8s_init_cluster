@@ -1,4 +1,4 @@
-# Configuration bash scripts for a quick setup of a Kubernetes Cluster (Bare Metal)
+# Configuration bash scripts for a quick setup of a Kubernetes Cluster (VMs)
 
 The repository contains simple bash files to quickly setup the nodes of a Kubernetes Cluster running on a Linux Distro. 
 
