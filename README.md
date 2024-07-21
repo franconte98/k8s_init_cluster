@@ -16,7 +16,7 @@ The repository contains simple bash files to quickly setup the nodes of a Kubern
 
 Run as an administrator and exec the following commands.
 
-⚠️ These commands gives the permits to run the file to the OS. Therefore read the files before you run them!
+⚠️ These commands gives the permits to run the file to the OS. Therefore read them!
 
 ```bash
 git clone https://github.com/franconte98/k8s_init_cluster.git
