@@ -45,5 +45,5 @@ bash -xv ./k8s_init_cluster/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP INSERT
 At this point we gotta config our metalLB through a config file that define for us a address pool. That's why we are gonna define it inside our Config/metallb.yaml and then run the following command.
 
 ```bash
-kubectl apply -f /k8s_init_cluster/Config/metallb.yaml
+kubectl apply -f k8s_init_cluster/Config/metallb.yaml
 ```
