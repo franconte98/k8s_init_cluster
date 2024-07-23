@@ -42,8 +42,8 @@ bash -xv ./k8s_init_cluster/Scripts/init.sh
 bash -xv ./k8s_init_cluster/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP INSERT_CIDR_PODS
 ```
 
-#### Example of bash command: 
+At this point we gotta config our metalLB through a config file that define for us a address pool. That's why we are gonna define it inside our Config/metallb.yaml and then run the following command.
 
 ```bash
-bash -xv ./k8s_init_cluster/Scripts/masterinit.sh 192.168.0.140:6443 10.0.2.0/24
+kubectl apply -f /k8s_init_cluster/Config/metallb.yaml
 ```
