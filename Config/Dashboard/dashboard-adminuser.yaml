@@ -25,3 +25,12 @@ metadata:
   annotations:
     kubernetes.io/service-account.name: "admin-user"   
 type: kubernetes.io/service-account-token  
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:  
+  name: allow-all
+  spec:  
+    podSelector: {}
+    ingress:  
+    - {}
