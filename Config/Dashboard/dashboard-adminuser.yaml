@@ -49,6 +49,6 @@ spec:
     targetPort: 8443
   selector:
     app.kubernetes.io/component: app
-    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/instance: k8s-dashboard-kubernetes-dashboard-web
     app.kubernetes.io/name: kong
   type: NodePort
