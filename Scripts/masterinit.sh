@@ -19,4 +19,6 @@ helm repo add metallb https://metallb.github.io/metallb;
 kubectl create namespace metallb-system;
 helm install metallb metallb/metallb --set crds.validationFailurePolicy=Ignore -n metallb-system;
 
+sudo snap install k9s;
+
 kubeadm token create --print-join-command;
