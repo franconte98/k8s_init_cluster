@@ -4,7 +4,8 @@ sudo kubeadm init --upload-certs --control-plane-endpoint="$1" --apiserver-adver
 mkdir -p $HOME/.kube;
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config;
 sudo chown $(id -u):$(id -g) $HOME/.kube/config;
-kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml;
+kubectl create namespace tigera-operator;
+helm install calico projectcalico/tigera-operator --version v3.28.1 --namespace tigera-operator;
 
 ### Append strictARP: true
 kubectl get configmap kube-proxy -n kube-system -o yaml | \
