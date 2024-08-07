@@ -6,7 +6,7 @@ The repository contains simple bash files to quickly setup the nodes of a Kubern
 
 ` OS Used: ` Ubuntu Server 24.04  
 
-` Cri-Socket used: ` cri-dockerd.sock
+` CRI used: ` Docker
 
 ` VM Manager used: ` VM Box
 
