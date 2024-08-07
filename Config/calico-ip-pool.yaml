@@ -1,13 +1,20 @@
-apiVersion: projectcalico.org/v3
-kind: IPPool
+apiVersion: operator.tigera.io/v1
+kind: Installation
 metadata:
-  name: IpPoolCalico
+  name: default
 spec:
-  cidr: 192.168.131.101/24
-  ipipMode: CrossSubnet
-  natOutgoing: true
-  disabled: false
-  nodeSelector: all()
-  allowedUses:
-    - Workload
-    - Tunnel
+  # Configures Calico networking.
+  calicoNetwork:
+    # Note: The ipPools section cannot be modified post-install.
+    ipPools:
+    - blockSize: 26
+      cidr: 192.168.131.101/24 #This must match the --pod-network-cidr from the kubeadm init command
+      encapsulation: VXLANCrossSubnet
+      natOutgoing: Enabled
+      nodeSelector: all()
+---
+apiVersion: operator.tigera.io/v1
+kind: APIServer
+metadata:
+  name: default
+spec: {}
