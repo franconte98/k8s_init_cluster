@@ -44,6 +44,8 @@ bash -xv ./k8s_init_cluster/Scripts/init.sh
 bash -xv ./k8s_init_cluster/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP INSERT_CIDR_PODS
 ```
 
+---
+
 At this point we gotta config our metalLB through a config file that define for us a address pool. That's why we are gonna define it inside our Config/metallb.yaml and then run the following command.
 
 ```bash
