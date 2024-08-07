@@ -2,7 +2,7 @@
 
 The repository contains simple bash files to quickly setup the nodes of a Kubernetes Cluster running on Virtual Machines.
 
-## Specifications
+## Specifications / Tool used
 
 ` OS Used: ` Ubuntu Server 24.04  
 
