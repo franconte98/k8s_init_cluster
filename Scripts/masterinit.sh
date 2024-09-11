@@ -20,5 +20,6 @@ kubectl create namespace metallb-system;
 helm install metallb metallb/metallb --set crds.validationFailurePolicy=Ignore -n metallb-system;
 
 sudo snap install k9s;
+sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/;
 
 kubeadm token create --print-join-command;
