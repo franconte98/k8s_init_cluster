@@ -1,9 +1,15 @@
 #!/bin/bash
 ls;
+
+### Disable Swap in linux
 swapoff -a;
 sed -i '/[/]swap.img/ s/^/#/' /etc/fstab;
+
+### Get the tools for Logging and Networking on Linux
 sudo apt install net-tools;
 sudo apt-get update;
+
+### Install Kubernetes components
 sudo apt-get install -y apt-transport-https ca-certificates curl gpg;
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg;
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list;
@@ -15,6 +21,8 @@ sudo apt-mark hold kubelet kubeadm kubectl;
 sudo apt-get install apt-transport-https --yes;
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list;
 sudo apt-get update;
+
+### Install Helm and the Docker CRI
 sudo apt-get install helm;
 wget https://github.com/Mirantis/cri-dockerd/releases/download/v0.3.14/cri-dockerd-0.3.14.amd64.tgz;
 tar -xvf cri-dockerd-0.3.14.amd64.tgz;
@@ -25,6 +33,7 @@ cd cri-dockerd || exit;
 mkdir -p /usr/local/bin;
 install -o root -g root -m 0755 ./cri-dockerd /usr/local/bin/cri-dockerd;
 
+### Set up the Docker CRI 
 sudo tee /etc/systemd/system/cri-docker.service << EOF
 [Unit]
 Description=CRI Interface for Docker Application Container Engine
@@ -50,7 +59,6 @@ KillMode=process
 [Install]
 WantedBy=multi-user.target
 EOF
-
 
 sudo tee /etc/systemd/system/cri-docker.socket << EOF
 [Unit]
@@ -78,11 +86,14 @@ net.bridge.bridge-nf-call-iptables = 1
 net.ipv4.ip_forward = 1
 EOF
 
+### Install and setup Docker Compose (allow to handle containers, images and volumes through YAMLs)
 DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker};
 mkdir -p $DOCKER_CONFIG/cli-plugins;
 curl -SL https://github.com/docker/compose/releases/download/v2.28.1/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose;
 chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose;
 
+
+### Install all the necessary components of K8S Architecture right inside Docker
 sysctl --system;
 sudo systemctl enable kubelet;
 sudo kubeadm config images pull --cri-socket unix:///var/run/cri-dockerd.sock;
