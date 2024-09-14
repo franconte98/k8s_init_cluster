@@ -10,8 +10,6 @@ The repository contains simple bash files to quickly setup the nodes of a Kubern
 
 ` VM Manager used: ` VM Box
 
-` Network Policy: ` Weave
-
 ` Interface used: ` k9s
 
 ## Usage
