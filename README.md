@@ -55,3 +55,7 @@ From the master node/s we can control the whole cluster by using a tool called k
 ```bash
 k9s
 ```
+
+---
+
+The cluster, at this point, should be fully functional, allowing us to easily inspect it through a comfortable dashboard right inside the command line. It lacks a Network Policy though, 'cause many users might prefer certain ones. Plus not every single cluster should have one depending on the objective of the developers. That been said, have fun with it!
