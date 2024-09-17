@@ -9,10 +9,13 @@ sed -i '/[/]swap.img/ s/^/#/' /etc/fstab;
 sudo apt install net-tools;
 sudo apt-get update;
 
+### Retreive the latest version of Kubernetes and store it in $VER_K8S_Latest
+VER_K8S_Latest=$(curl --silent -qI https://github.com/kubernetes/kubernetes/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}'); 
+
 ### Install Kubernetes components
 sudo apt-get install -y apt-transport-https ca-certificates curl gpg;
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg;
-echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list;
+curl -fsSL https://pkgs.k8s.io/core:/stable:/$VER_K8S_Latest/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg;
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/'$VER_K8S_Latest'/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list;
 curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null;
 sudo apt-get update;
 sudo apt-get install -y kubelet kubeadm kubectl;
