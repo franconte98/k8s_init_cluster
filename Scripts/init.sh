@@ -31,8 +31,7 @@ VER_CRI_DOCKER=$(curl --silent -qI https://github.com/Mirantis/cri-dockerd/relea
 wget https://github.com/Mirantis/cri-dockerd/releases/download/$VER_CRI_DOCKER/cri-dockerd-${VER_CRI_DOCKER#v}.amd64.tgz;
 tar -xvf cri-dockerd-${VER_CRI_DOCKER#v}.amd64.tgz;
 sudo apt install docker.io -y;
-systemctl start docker;
-systemctl enable docker;
+systemctl enable --now docker;
 cd cri-dockerd || exit;
 mkdir -p /usr/local/bin;
 install -o root -g root -m 0755 ./cri-dockerd /usr/local/bin/cri-dockerd;
