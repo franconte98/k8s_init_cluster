@@ -6,6 +6,15 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config;
 
 ### Append strictARP: true
 kubectl get configmap kube-proxy -n kube-system -o yaml | \
+sed -e "s/mode: \"\"/mode: \"ipvs\"/" | \
+kubectl diff -f - -n kube-system;
+### 
+kubectl get configmap kube-proxy -n kube-system -o yaml | \
+sed -e "s/mode: \"\"/mode: \"ipvs\"/" | \
+kubectl apply -f - -n kube-system;
+
+### Append mode: "ipvs"
+kubectl get configmap kube-proxy -n kube-system -o yaml | \
 sed -e "s/strictARP: false/strictARP: true/" | \
 kubectl diff -f - -n kube-system;
 ### 
@@ -22,5 +31,5 @@ helm install metallb metallb/metallb --set crds.validationFailurePolicy=Ignore -
 sudo snap install k9s;
 sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/;
 
-### Print the instruction to join the cluster from working nodes [Remember to add --cri-socket unix:///var/run/cri-dockerd.sock at the end]
-kubeadm token create --print-join-command;
+### Print the instruction to join the cluster from working nodes
+kubeadm token create --print-join-command" --cri-socket unix:///var/run/cri-dockerd.sock";
