@@ -4,7 +4,7 @@ mkdir -p $HOME/.kube;
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config;
 sudo chown $(id -u):$(id -g) $HOME/.kube/config;
 
-### Append strictARP: true
+### Append mode: "ipvs"
 kubectl get configmap kube-proxy -n kube-system -o yaml | \
 sed -e "s/mode: \"\"/mode: \"ipvs\"/" | \
 kubectl diff -f - -n kube-system;
@@ -13,7 +13,7 @@ kubectl get configmap kube-proxy -n kube-system -o yaml | \
 sed -e "s/mode: \"\"/mode: \"ipvs\"/" | \
 kubectl apply -f - -n kube-system;
 
-### Append mode: "ipvs"
+### Append strictARP: true
 kubectl get configmap kube-proxy -n kube-system -o yaml | \
 sed -e "s/strictARP: false/strictARP: true/" | \
 kubectl diff -f - -n kube-system;
@@ -32,4 +32,5 @@ sudo snap install k9s;
 sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/;
 
 ### Print the instruction to join the cluster from working nodes
-kubeadm token create --print-join-command" --cri-socket unix:///var/run/cri-dockerd.sock";
+JOIN_COMMAND="$(kubeadm token create --print-join-command)";
+echo $JOIN_COMMAND"--cri-socket unix:///var/run/cri-dockerd.sock";
