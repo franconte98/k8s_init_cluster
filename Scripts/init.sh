@@ -100,3 +100,8 @@ chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose;
 sysctl --system;
 sudo systemctl enable kubelet;
 sudo kubeadm config images pull --cri-socket unix:///var/run/cri-dockerd.sock;
+
+### Set Up Internal-IP of the Node
+IP_INT=$1;
+echo 'KUBELET_EXTRA_ARGS="--node-ip='$IP_INT'"' > /etc/default/kubelet;
+systemctl restart kubelet;
