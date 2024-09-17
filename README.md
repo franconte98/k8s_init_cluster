@@ -33,7 +33,7 @@ Now you can execute them by use the following commands.
 
 Run the following command on each node (both the Master/s and the working ones)
 ```bash
-bash -xv ./k8s_init_cluster/Scripts/init.sh
+bash -xv ./k8s_init_cluster/Scripts/init.sh INSERT_NODE_IP
 ```
 
 ⚠️ USE THE FOLLOWING COMMAND ONLY ON THE MASTER NODE/S
