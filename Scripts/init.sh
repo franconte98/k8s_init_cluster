@@ -21,10 +21,11 @@ sudo apt-get install apt-transport-https --yes;
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list;
 sudo apt-get update;
 
-### Install Helm and the Docker CRI
+### Install Helm and the Docker CRI [Retreive the latest]
 sudo apt-get install helm;
-wget https://github.com/Mirantis/cri-dockerd/releases/download/v0.3.14/cri-dockerd-0.3.14.amd64.tgz;
-tar -xvf cri-dockerd-0.3.14.amd64.tgz;
+VER_CRI_DOCKER=$(curl --silent -qI https://github.com/Mirantis/cri-dockerd/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}'); 
+wget https://github.com/Mirantis/cri-dockerd/releases/download/$VER_CRI_DOCKER/cri-dockerd-${VER_CRI_DOCKER#v}.amd64.tgz;
+tar -xvf cri-dockerd-${VER_CRI_DOCKER#v}.amd64.tgz;
 sudo apt install docker.io -y;
 systemctl start docker;
 systemctl enable docker;
