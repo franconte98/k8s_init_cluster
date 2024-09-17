@@ -85,10 +85,10 @@ net.bridge.bridge-nf-call-iptables = 1
 net.ipv4.ip_forward = 1
 EOF
 
-### Install and setup Docker Compose (allow to handle containers, images and volumes through YAMLs)
+### Install and setup Docker Compose (allow to handle containers, images and volumes through YAMLs) [Retreive the latest]
 DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker};
 mkdir -p $DOCKER_CONFIG/cli-plugins;
-curl -SL https://github.com/docker/compose/releases/download/v2.28.1/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose;
+curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose;
 chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose;
 
 
