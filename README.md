@@ -39,7 +39,7 @@ bash -xv ./k8s_init_cluster/Scripts/init.sh INSERT_NODE_IP
 ⚠️ USE THE FOLLOWING COMMAND ONLY ON THE MASTER NODE/S
 
 ```bash
-bash -xv ./k8s_init_cluster/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP INSERT_POD_CIDR
+bash -xv ./k8s_init_cluster/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP
 ```
 
 ---
