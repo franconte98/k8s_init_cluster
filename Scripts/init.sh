@@ -40,13 +40,12 @@ install -o root -g root -m 0755 ./cri-dockerd /usr/local/bin/cri-dockerd;
 sudo tee /etc/systemd/system/cri-docker.service << EOF
 [Unit]
 Description=CRI Interface for Docker Application Container Engine
-Documentation=https://docs.mirantis.com
 After=network-online.target firewalld.service docker.service
 Wants=network-online.target
 Requires=cri-docker.socket
 [Service]
 Type=notify
-ExecStart=/usr/local/bin/cri-dockerd --container-runtime-endpoint fd:// --network-plugin=
+ExecStart=/usr/local/bin/cri-dockerd --container-runtime-endpoint fd:// --network-plugin=cni
 ExecReload=/bin/kill -s HUP $MAINPID
 TimeoutSec=0
 RestartSec=2
