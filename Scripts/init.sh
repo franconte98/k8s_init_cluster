@@ -36,7 +36,7 @@ cd cri-dockerd || exit;
 mkdir -p /usr/local/bin;
 install -o root -g root -m 0755 ./cri-dockerd /usr/local/bin/cri-dockerd;
 
-### Set up the Docker CRI 
+### Set up the Docker CRI (Removed ExecStart=/usr/local/bin/cri-dockerd --container-runtime-endpoint fd:// --network-plugin=cni)
 sudo tee /etc/systemd/system/cri-docker.service << EOF
 [Unit]
 Description=CRI Interface for Docker Application Container Engine
@@ -45,7 +45,6 @@ Wants=network-online.target
 Requires=cri-docker.socket
 [Service]
 Type=notify
-ExecStart=/usr/local/bin/cri-dockerd --container-runtime-endpoint fd:// --network-plugin=cni
 ExecReload=/bin/kill -s HUP $MAINPID
 TimeoutSec=0
 RestartSec=2
