@@ -12,6 +12,8 @@ The repository contains simple bash files to quickly setup the nodes of a Kubern
 
 ` Interface used: ` k9s
 
+` Network Policy used: ` Weave
+
 ## Usage
 
 Run as an administrator and exec the following commands.
