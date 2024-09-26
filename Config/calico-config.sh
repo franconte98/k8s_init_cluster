@@ -16,3 +16,5 @@ sudo mv k8s_init_cluster/Config/calicoctl.cfg /etc/calico/;
 calicoctl version;
 calicoctl get nodes;
 calicoctl node status;
+sudo systemctl daemon-reload;
+sudo systemctl restart cri-docker.service;
