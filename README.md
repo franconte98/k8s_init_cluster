@@ -58,6 +58,6 @@ k9s
 
 ---
 
-The cluster, at this point, should be fully functional, allowing us to easily inspect it through a comfortable dashboard right inside the command line. It lacks a Network Policy so then you can freely decide which one you wanna use. 
+The cluster, at this point, should be fully functional, allowing us to easily inspect it through a comfortable dashboard right inside the command line. As a Network Policyit uses Weave, which is extremely easy to setup. 
 
 That been said, have fun with it!
