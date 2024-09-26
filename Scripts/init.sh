@@ -1,5 +1,4 @@
 #!/bin/bash
-ls;
 
 ### Disable Swap in linux
 swapoff -a;
