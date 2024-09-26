@@ -31,6 +31,10 @@ helm install metallb metallb/metallb --set crds.validationFailurePolicy=Ignore -
 sudo snap install k9s;
 sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/;
 
+### Install Weave as a Network Plugin
+VER_LATEST_WEAVE=$(curl --silent -qI https://github.com/weaveworks/weave/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}');
+kubectl apply -f https://github.com/weaveworks/weave/releases/download/$VER_LATEST_WEAVE/weave-daemonset-k8s.yaml;
+
 ### Print the instruction to join the cluster from working nodes
 JOIN_COMMAND="$(kubeadm token create --print-join-command)";
 echo $JOIN_COMMAND"--cri-socket unix:///var/run/cri-dockerd.sock";
