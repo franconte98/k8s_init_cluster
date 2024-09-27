@@ -102,3 +102,7 @@ sudo kubeadm config images pull --cri-socket unix:///var/run/cri-dockerd.sock;
 ### Set Up Internal-IP of the Node
 echo 'KUBELET_EXTRA_ARGS="--node-ip='$1'"' > /etc/default/kubelet;
 systemctl restart kubelet;
+
+### Install Weave Tool for each node in the cluster
+sudo curl -L git.io/weave -o /usr/local/bin/weave;
+sudo chmod +x /usr/local/bin/weave;

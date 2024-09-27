@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo kubeadm init --upload-certs --control-plane-endpoint="$1" --apiserver-advertise-address="$1" --ignore-preflight-errors=all --cri-socket unix:///var/run/cri-dockerd.sock;
+sudo kubeadm init --upload-certs --control-plane-endpoint="$1" --apiserver-advertise-address="$1" --pod-network-cidr="$2" --ignore-preflight-errors=all --cri-socket unix:///var/run/cri-dockerd.sock;
 mkdir -p $HOME/.kube;
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config;
 sudo chown $(id -u):$(id -g) $HOME/.kube/config;
@@ -32,9 +32,14 @@ sudo snap install k9s;
 sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/;
 
 ### Install Weave as a Network Plugin
-VER_LATEST_WEAVE=$(curl --silent -qI https://github.com/weaveworks/weave/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}');
-kubectl apply -f https://github.com/weaveworks/weave/releases/download/$VER_LATEST_WEAVE/weave-daemonset-k8s.yaml;
+#VER_LATEST_WEAVE=$(curl --silent -qI https://github.com/weaveworks/weave/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}');
+#kubectl apply -f https://github.com/weaveworks/weave/releases/download/$VER_LATEST_WEAVE/weave-daemonset-k8s.yaml;
 
 ### Print the instruction to join the cluster from working nodes
+JOIN_COMMAND="$(kubeadm token create --print-join-command)";
+echo $JOIN_COMMAND"--cri-socket unix:///var/run/cri-dockerd.sock";
+
+### Print the instruction to join the weave network
+weave launch --ipalloc-range "$2";
 JOIN_COMMAND="$(kubeadm token create --print-join-command)";
 echo $JOIN_COMMAND"--cri-socket unix:///var/run/cri-dockerd.sock";
