@@ -44,6 +44,12 @@ bash -xv ./k8s_init_cluster/Scripts/init.sh INSERT_NODE_IP
 bash -xv ./k8s_init_cluster/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP
 ```
 
+⚠️ Rememeber to the apply the following command to initialize weave on the worker nodes as well
+
+```bash
+weave
+```
+
 ---
 
 At this point we gotta config our metalLB through a config file that define for us a address pool. That's why we are gonna define it inside our Config/metallb.yaml and then run the following command.
