@@ -29,7 +29,7 @@ helm install metallb metallb/metallb --set crds.validationFailurePolicy=Ignore -
 
 ### Install NGINX Ingress Controller
 VER_NGINX_INGRESS_CONTROLLER=$(curl --silent -qI https://github.com/kubernetes/ingress-nginx/releases/latest/download/ |  awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}');
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/$VER_NGINX_INGRESS_CONTROLLER/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/$VER_NGINX_INGRESS_CONTROLLER/deploy/static/provider/cloud/deploy.yaml;
 
 ### Add k9s (Complete Dashboard accessible from Command Line)
 sudo snap install k9s;
