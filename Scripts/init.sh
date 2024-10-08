@@ -93,7 +93,6 @@ mkdir -p $DOCKER_CONFIG/cli-plugins;
 curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose;
 chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose;
 
-
 ### Install all the necessary components of K8S Architecture right inside Docker
 sysctl --system;
 sudo systemctl enable kubelet;
