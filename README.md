@@ -64,7 +64,7 @@ From the master node/s we can control the whole cluster by using a tool called k
 k9s
 ```
 
-⚠️ With the current configuration of our system we should find ourself with a working cluster where all the PODS can comunicate with each other both internally and externally, and where our Load Balancer (MetalLB) pick one IP from the set IDAddressPool. That been said, we might find our self in a situation where we might wanna connect our pods to the external (outside of our cluster) to retrieve some data. For that we might wanna use a DNS Solution to bypass the resolv.config. In this case we can set up a DNS for each pod through a ConfigMap that change the DNS of our Kube-DNSs.
+⚠️ With the current configuration of our system we should find ourself with a working cluster where all the PODS can comunicate with each other both internally and externally, and where our Load Balancer (MetalLB) pick one IP from the set IPAddressPool. That been said, we might find our self in a situation where we might wanna connect our pods to the external (outside of our cluster) to retrieve some data. For that we might wanna use a DNS Solution to bypass the resolv.config. In this case we can set up a DNS for each pod through a ConfigMap that change the DNS of our Kube-DNSs.
 
 ```bash
 kubectl apply -f k8s_init_cluster/Config/dns-config.yaml
