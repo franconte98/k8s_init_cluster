@@ -36,8 +36,8 @@ sudo snap install k9s;
 sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/;
 
 ### Increase the number of lines to be logged in k9s
-sed -i 's/tail.*/tail: 1000/' ~/.config/k9s/config.yml
-sed -i 's/buffer.*/buffer: 5000/' ~/.config/k9s/config.yml
+sed -i 's/tail.*/tail: 1000/' ~/.config/k9s/config.yml;
+sed -i 's/buffer.*/buffer: 5000/' ~/.config/k9s/config.yml;
 
 ## Set nano as Kube_Editor (i know you guys use vim, but stfu)
 export KUBE_EDITOR=nano;
