@@ -64,6 +64,8 @@ kubeadm join 192.168.100.50:6443 --token awfaaw.awdawdawd --discovery-token-ca-c
 
 Copy that instructions and use it on each working node.
 
+---
+
 **Step 4 - Initialize weave / MetalLB**
 
 The last step to fully initialize the cluster is to setup a Network Policy for you cluster by using Weave and to setup a IP Address Pool for your load balancers.
@@ -86,8 +88,6 @@ kubectl apply -f k8s_init_cluster/Config/metallb.yaml
 ```
 
 At this point your cluster should be fully functional and ready to be used as you desire!
-
----
 
 ## Manage the cluster
 
