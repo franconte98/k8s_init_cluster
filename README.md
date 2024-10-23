@@ -111,4 +111,6 @@ k9s
 > ```kubectl apply -f k8s_init_cluster/Config/dns-config.yaml```
 
 > [!TIP]
-> Install brew by running the following code: ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
+> Install brew by running the following code.
+> 
+> ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
