@@ -26,9 +26,7 @@ Inside the repository the are some bash file that allows you to quickly setup a 
 
 So get ready to follow the next steps.
 
----
-
-**1️⃣ - Initialize EACH node with the basic tools**
+<ins>**Step 1 - Initialize EACH node with the basic tools**</ins>
 
 You wanna make sure you run the following commands for every single node in the cluster. With this you are gonna make sure that each part of the cluster stays updated with the other ones. 
 
@@ -42,9 +40,7 @@ bash -xv ./k8s_init_cluster/Scripts/init.sh INSERT_NODE_IP
 > [!NOTE]
 > As you can see in the last instruction you gotta insert the desired IP of the node for your kubernetes cluster. You can retreive it by using the ```ip a``` command.
 
----
-
-**2️⃣ - Initialize the MASTER node/s**
+<ins>**Step 2 - Initialize the MASTER node/s**</ins>
 
 At this point is ready to be created by initializing the master node/s as well. Run the following commands ONLY in the master node/s.
 
@@ -58,9 +54,7 @@ bash -xv ./k8s_init_cluster/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP
 > [!NOTE]
 > Just like you previously did, in the last instruction you gotta insert the IP, that has to be the very same you used for the init.sh
 
----
-
-**3️⃣ - Join to the master node/s**
+<ins>**Step 3 - Join to the master node/s**</ins>
 
 Next, to initialize the cluster, we also gotta connect the working nodes to the master ones, and to to that you have to retreive the lastest instruction you got from the masterinit.sh execution. It will look something like the following code.
 
@@ -70,13 +64,9 @@ kubeadm join 192.168.100.50:6443 --token awfaaw.awdawdawd --discovery-token-ca-c
 
 Copy that instructions and use it on each working node.
 
----
+<ins>**Step 4 - Initialize Weave / MetalLB**</ins>
 
-**4️⃣ - Initialize Weave / MetalLB**
-
-The last step to fully initialize the cluster is to setup a Network Policy for you cluster by using Weave and to setup a IP Address Pool for your load balancers.
-
-Run the following instruction on each node of the cluster to setup the POD CIDR through you Network Policy.
+The last step to fully initialize the cluster is to setup a Network Policy for you cluster by using Weave and to setup a IP Address Pool for your load balancers. Run the following instruction on each node of the cluster to setup the POD CIDR through you Network Policy.
 
 ```bash
 weave
