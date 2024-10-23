@@ -39,10 +39,10 @@ sudo ln -s /snap/k9s/current/bin/k9s /snap/bin/;
 sed -i 's/tail.*/tail: 1000/' ~/.config/k9s/config.yml;
 sed -i 's/buffer.*/buffer: 5000/' ~/.config/k9s/config.yml;
 
-## Set nano as Kube_Editor (i know you guys use vim, but stfu)
+## Set nano as Kube_Editor
 export KUBE_EDITOR=nano;
 
-### Install Weave as a Network Plugin (REMEMBER TO USE THE LINE weave ON EVERY OTHER NODE TO INITIALIZE THE POD CIDR FROM THE Network Plugin)
+### Install Weave as a Network Plugin
 VER_LATEST_WEAVE=$(curl --silent -qI https://github.com/weaveworks/weave/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}');
 kubectl apply -f https://github.com/weaveworks/weave/releases/download/$VER_LATEST_WEAVE/weave-daemonset-k8s.yaml;
 weave;
