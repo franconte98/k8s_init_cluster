@@ -8,9 +8,7 @@ The repository contains simple bash files to quickly setup the nodes of a Kubern
 
 ` CRI used: ` Docker
 
-` VM Manager used: ` VM Box
-
-` Interface used: ` k9s
+` Dashboard used: ` k9s
 
 ` Network Policy used: ` Weave
 
