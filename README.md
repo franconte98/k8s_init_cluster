@@ -26,6 +26,8 @@ Inside the repository the are some bash file that allows you to quickly setup a 
 
 So get ready to follow the next steps.
 
+---
+
 **Step 1 - Initialize EACH node with the basic tools**
 
 You wanna make sure you run the following commands for every single node in the cluster. With this you are gonna make sure that each part of the cluster stays updated with the other ones. 
@@ -40,6 +42,8 @@ bash -xv ./k8s_init_cluster/Scripts/init.sh INSERT_NODE_IP
 > [!NOTE]
 > As you can see in the last instruction you gotta insert the desired IP of the node for your kubernetes cluster. You can retreive it by using the ```ip a``` command.
 
+---
+
 **Step 2 - Initialize the MASTER node/s**
 
 At this point is ready to be created by initializing the master node/s as well. Run the following commands ONLY in the master node/s.
@@ -53,6 +57,8 @@ bash -xv ./k8s_init_cluster/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP
 
 > [!NOTE]
 > Just like you previously did, in the last instruction you gotta insert the IP, that has to be the very same you used for the init.sh
+
+---
 
 **Step 3 - Join to the master node/s**
 
@@ -103,10 +109,5 @@ k9s
 ---
 
 > [!WARNING]
-> With the current configuration of our system we should find ourself with a working cluster where all the PODS can comunicate with each other both internally and externally, and where our Load Balancer (MetalLB) pick one IP from the set IPAddressPool. That been said,  > we might find our self in a situation where we might wanna connect our pods to the external (outside of our cluster) to retrieve some data. For that we might wanna use a DNS Solution to bypass the resolv.config. In this case we can set up a DNS for each pod through a > ConfigMap that change the DNS of our Kube-DNSs. Run the following command to do that. ```kubectl apply -f k8s_init_cluster/Config/dns-config.yaml```
-
----
-
-The cluster, at this point, should be fully functional, allowing us to easily inspect it through a comfortable dashboard right inside the command line. As a Network Policy it uses Weave, which is extremely easy to setup. 
-
-That been said, have fun with it!
+> With the current configuration of our system we should find ourself with a working cluster where all the PODS can comunicate with each other both internally and externally, and where our Load Balancer (MetalLB) pick one IP from the set IPAddressPool. That been said, we might find our self in a situation where we might wanna connect our pods to the external (outside of our cluster) to retrieve some data. For that we might wanna use a DNS Solution to bypass the resolv.config. In this case we can set up a DNS for each pod through a ConfigMap that change the DNS of our Kube-DNSs. Run the following command to do that.
+> ```kubectl apply -f k8s_init_cluster/Config/dns-config.yaml```
