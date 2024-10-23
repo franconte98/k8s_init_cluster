@@ -26,7 +26,7 @@ So get ready to follow the next steps.
 
 <ins>**Step 1 - Initialize EACH node with the basic tools**</ins>
 
-You wanna make sure you run the following commands for every single node in the cluster. With this you are gonna make sure that each part of the cluster stays updated with the other ones. 
+You wanna make sure you run the following commands for every single node in the cluster.
 
 ```bash
 chmod +x k8s_init_cluster/Scripts/init.sh
