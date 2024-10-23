@@ -28,7 +28,7 @@ So get ready to follow the next steps.
 
 ---
 
-**Step 1 - Initialize EACH node with the basic tools**
+**1️⃣ - Initialize EACH node with the basic tools**
 
 You wanna make sure you run the following commands for every single node in the cluster. With this you are gonna make sure that each part of the cluster stays updated with the other ones. 
 
@@ -44,7 +44,7 @@ bash -xv ./k8s_init_cluster/Scripts/init.sh INSERT_NODE_IP
 
 ---
 
-**Step 2 - Initialize the MASTER node/s**
+**2️⃣ - Initialize the MASTER node/s**
 
 At this point is ready to be created by initializing the master node/s as well. Run the following commands ONLY in the master node/s.
 
@@ -60,7 +60,7 @@ bash -xv ./k8s_init_cluster/Scripts/masterinit.sh INSERT_CONTROL_PLANE_IP
 
 ---
 
-**Step 3 - Join to the master node/s**
+**3️⃣ - Join to the master node/s**
 
 Next, to initialize the cluster, we also gotta connect the working nodes to the master ones, and to to that you have to retreive the lastest instruction you got from the masterinit.sh execution. It will look something like the following code.
 
@@ -72,7 +72,7 @@ Copy that instructions and use it on each working node.
 
 ---
 
-**Step 4 - Initialize weave / MetalLB**
+**4️⃣ - Initialize Weave / MetalLB**
 
 The last step to fully initialize the cluster is to setup a Network Policy for you cluster by using Weave and to setup a IP Address Pool for your load balancers.
 
