@@ -98,8 +98,3 @@ k9s
 > Our pods might need to be connected externally to our cluster, and in order to do that we might wanna use a DNS Solution to bypass the resolv.config. Run the following command to do that.
 >
 > ```kubectl apply -f k8s_init_cluster/Config/dns-config.yaml```
-
-> [!TIP]
-> Install brew by running the following code.
-> 
-> ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
