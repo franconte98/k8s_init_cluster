@@ -85,7 +85,7 @@ At this point your cluster should be fully functional and ready to be used as yo
 
 ## Manage the cluster
 
-Within the tools installed through the bash files the is k9s, a command line dashboard that allows you to manage your cluster easily. To run k9s run the following command.
+Within the tools installed through the bash files there is k9s, a command line dashboard that allows you to manage your cluster easily. To run k9s run the following command.
 
 ```bash
 k9s
